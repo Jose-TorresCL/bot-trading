@@ -1,0 +1,2 @@
+# bot-trading
+trading algoritmico
