@@ -1,0 +1,2189 @@
+[
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 35,
+        "RSI_LIMIT_VENTA": 65,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 40,
+        "RSI_LIMIT_VENTA": 60,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 20,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 25,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 3,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 4,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 1.5,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 2.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 3.0,
+        "error": "too many values to unpack (expected 2)"
+    },
+    {
+        "RSI_LIMIT_COMPRA": 45,
+        "RSI_LIMIT_VENTA": 55,
+        "ADX_LIMIT": 30,
+        "MIN_VOTES": 5,
+        "SL_MULT": 2.0,
+        "TP_MULT": 4.0,
+        "error": "too many values to unpack (expected 2)"
+    }
+]
