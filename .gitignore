@@ -1,0 +1,5 @@
+*.log
+*.csv
+*.json
+!config.env
+!preguntas.env
