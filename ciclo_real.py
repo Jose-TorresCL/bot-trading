@@ -1,4 +1,5 @@
 import logging
+import time
 from conexion_api import get_historical_data, connect_to_binance
 from estrategias_bot1 import estrategia_compra, estrategia_venta, registrar_decisiones
 from gestor_indicadores import calcular_todos_los_indicadores, evaluar_indicadores
@@ -81,5 +82,50 @@ def tomar_decision(indicadores):
         return "venta"
     return None
 
+def ejecutar_ciclo_paper_trading(intervalo=60):
+    saldo = 1000.0  # Saldo inicial simulado en USDT
+    posicion = None  # None, "compra" o "venta"
+    precio_entrada = 0.0
+
+    while True:
+        historical_data = ejecutar_ciclo()  # Ejecuta el ciclo y obtiene los datos
+        if historical_data is None:
+            time.sleep(intervalo)
+            continue
+
+        # Acceso al último precio
+        if hasattr(historical_data, "iloc"):
+            precio_actual = historical_data.iloc[-1]["close"]
+        else:
+            precio_actual = historical_data[-1].get("close", 0)
+
+        # Lógica de gestión de posición
+        if posicion is None:
+            # Solo abrimos posición si no hay ninguna abierta
+            decision = tomar_decision(historical_data.iloc[-1])
+            if decision == "compra":
+                posicion = "compra"
+                precio_entrada = precio_actual
+                logging.info(f"🟢 COMPRA SIMULADA a {precio_actual:.2f} USDT")
+            elif decision == "venta":
+                posicion = "venta"
+                precio_entrada = precio_actual
+                logging.info(f"🔴 VENTA SIMULADA a {precio_actual:.2f} USDT")
+        else:
+            # Si hay una posición abierta, buscamos la señal contraria para cerrar
+            decision = tomar_decision(historical_data.iloc[-1])
+            if (posicion == "compra" and decision == "venta") or (posicion == "venta" and decision == "compra"):
+                # Calcula ganancia/pérdida
+                if posicion == "compra":
+                    ganancia = precio_actual - precio_entrada
+                else:
+                    ganancia = precio_entrada - precio_actual
+                saldo += ganancia
+                logging.info(f"💰 CERRANDO {posicion.upper()} a {precio_actual:.2f} USDT | Ganancia: {ganancia:.2f} | Saldo: {saldo:.2f}")
+                posicion = None
+                precio_entrada = 0.0
+
+        time.sleep(intervalo)
+
 if __name__ == "__main__":
-    ejecutar_ciclo()  # 🔹 Solo paper trading con datos reales
+    ejecutar_ciclo_paper_trading()
