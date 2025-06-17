@@ -138,7 +138,7 @@ def main():
             logging.info("ℹ️ No hay nuevos registros para añadir al historial.")
 
         # 🔄 Continuar ciclo
-         ejecutar_ciclo()
+        ejecutar_ciclo()
     else:
         print("Opción no válida. Por favor, ejecuta de nuevo el programa.")
 

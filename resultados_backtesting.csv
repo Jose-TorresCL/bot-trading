@@ -643,42 +643,40 @@ compra,1809.44,2520,2025-05-07 17:06:00,desconocido,"['ADX', 'BB_Lower']",,
 venta,1808.43,2521,2025-05-07 17:07:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan']",-1.009999999999991,1.0
 compra,1807.5,2522,2025-05-07 17:08:00,desconocido,"['ADX', 'BB_Lower']",,
 venta,1807.12,2523,2025-05-07 17:09:00,desconocido,"['MACD_hist', 'Ichimoku_Tenkan']",-0.38000000000010914,1.0
-compra,3703.6,3369,2024-11-30 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3707.61,3370,2024-12-01 00:00:00,desconocido,"['RSI', 'ADX', 'BB_Upper', 'ATR']",4.010000000000218,1.0
-compra,3643.42,3371,2024-12-02 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3614.51,3372,2024-12-03 00:00:00,desconocido,"['RSI', 'ADX', 'ATR']",-28.909999999999854,1.0
-compra,3837.8,3373,2024-12-04 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3785.2,3374,2024-12-05 00:00:00,desconocido,"['RSI', 'ADX', 'ATR']",-52.600000000000364,1.0
-compra,3998.87,3375,2024-12-06 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3996.22,3376,2024-12-07 00:00:00,desconocido,"['RSI', 'ADX', 'ATR']",-2.650000000000091,1.0
-compra,4004.15,3377,2024-12-08 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3712.0,3378,2024-12-09 00:00:00,desconocido,"['ADX', 'Ichimoku_Tenkan', 'ATR', 'vender_por_perdida_atr']",-292.1500000000001,1.0
-compra,3628.25,3379,2024-12-10 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",,
-venta,3831.81,3380,2024-12-11 00:00:00,desconocido,"['ADX', 'ATR']",203.55999999999995,1.0
+compra,3628.25,3379,2024-12-10 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
+venta,3831.81,3380,2024-12-11 00:00:00,desconocido,"['RSI', 'ADX', 'BB_Upper', 'ATR']",203.55999999999995,1.0
 compra,3881.61,3381,2024-12-12 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3906.8,3382,2024-12-13 00:00:00,desconocido,"['ADX', 'ATR']",25.190000000000055,1.0
-compra,3870.29,3383,2024-12-14 00:00:00,desconocido,"['ADX', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3959.09,3384,2024-12-15 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",88.80000000000018,1.0
-compra,3986.24,3385,2024-12-16 00:00:00,desconocido,"['ADX', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3893.01,3386,2024-12-17 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",-93.22999999999956,1.0
-compra,3626.8,3387,2024-12-18 00:00:00,desconocido,"['ADX', 'ATR']",,
-venta,3417.01,3388,2024-12-19 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-209.78999999999996,1.0
-compra,3472.21,3389,2024-12-20 00:00:00,desconocido,"['ADX', 'ATR']",,
+venta,3906.8,3382,2024-12-13 00:00:00,desconocido,"['RSI', 'ADX', 'BB_Upper', 'ATR']",25.190000000000055,1.0
+compra,3870.29,3383,2024-12-14 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
+venta,3959.09,3384,2024-12-15 00:00:00,desconocido,"['RSI', 'ADX', 'ATR']",88.80000000000018,1.0
+compra,3986.24,3385,2024-12-16 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
+venta,3893.01,3386,2024-12-17 00:00:00,desconocido,"['RSI', 'ADX', 'ATR']",-93.22999999999956,1.0
+compra,3626.8,3387,2024-12-18 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",,
+venta,3417.01,3388,2024-12-19 00:00:00,desconocido,"['ADX', 'Ichimoku_Tenkan', 'ATR']",-209.78999999999996,1.0
+compra,3472.21,3389,2024-12-20 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",,
 venta,3338.92,3390,2024-12-21 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-133.28999999999996,1.0
-compra,3281.83,3391,2024-12-22 00:00:00,desconocido,"['ADX', 'BB_Lower', 'ATR']",,
+compra,3281.83,3391,2024-12-22 00:00:00,desconocido,"['ADX', 'ATR']",,
 venta,3422.53,3392,2024-12-23 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",140.70000000000027,1.0
 compra,3493.18,3393,2024-12-24 00:00:00,desconocido,"['ADX', 'ATR']",,
 venta,3497.0,3394,2024-12-25 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",3.8200000000001637,1.0
 compra,3335.05,3395,2024-12-26 00:00:00,desconocido,"['ADX', 'ATR']",,
 venta,3333.51,3396,2024-12-27 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-1.5399999999999636,1.0
 compra,3404.0,3397,2024-12-28 00:00:00,desconocido,"['ADX', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3356.48,3398,2024-12-29 00:00:00,desconocido,"['MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-47.51999999999998,1.0
-compra,3455.67,3402,2025-01-02 00:00:00,desconocido,"['Ichimoku_Tenkan', 'ATR']",,
-venta,3609.01,3403,2025-01-03 00:00:00,desconocido,"['MACD_hist', 'ATR']",153.34000000000015,1.0
-compra,3656.88,3404,2025-01-04 00:00:00,desconocido,"['Ichimoku_Tenkan', 'ATR']",,
-venta,3635.99,3405,2025-01-05 00:00:00,desconocido,"['MACD_hist', 'ATR']",-20.890000000000327,1.0
-compra,3687.45,3406,2025-01-06 00:00:00,desconocido,"['MACD_hist', 'Ichimoku_Tenkan', 'ATR']",,
-venta,3381.31,3407,2025-01-07 00:00:00,desconocido,"['MACD_hist', 'Ichimoku_Tenkan', 'ATR', 'vender_por_perdida_atr']",-306.1399999999999,1.0
+venta,3356.48,3398,2024-12-29 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-47.51999999999998,1.0
+compra,3361.84,3399,2024-12-30 00:00:00,desconocido,"['ADX', 'ATR']",,
+venta,3337.78,3400,2024-12-31 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-24.059999999999945,1.0
+compra,3360.38,3401,2025-01-01 00:00:00,desconocido,"['ADX', 'ATR']",,
+venta,3455.67,3402,2025-01-02 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",95.28999999999996,1.0
+compra,3609.01,3403,2025-01-03 00:00:00,desconocido,"['ADX', 'Ichimoku_Tenkan', 'ATR']",,
+venta,3656.88,3404,2025-01-04 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",47.86999999999989,1.0
+compra,3635.99,3405,2025-01-05 00:00:00,desconocido,"['ADX', 'Ichimoku_Tenkan', 'ATR']",,
+venta,3687.45,3406,2025-01-06 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",51.460000000000036,1.0
+compra,3381.31,3407,2025-01-07 00:00:00,desconocido,"['ADX', 'ATR']",,
+venta,3327.29,3408,2025-01-08 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-54.01999999999998,1.0
+compra,3219.2,3409,2025-01-09 00:00:00,desconocido,"['ADX', 'ATR']",,
+venta,3267.04,3410,2025-01-10 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",47.840000000000146,1.0
+compra,3282.83,3411,2025-01-11 00:00:00,desconocido,"['ADX', 'ATR']",,
+venta,3267.3,3412,2025-01-12 00:00:00,desconocido,"['MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-15.529999999999745,1.0
 compra,3451.52,3415,2025-01-15 00:00:00,desconocido,"['Ichimoku_Tenkan', 'ATR']",,
 venta,3308.05,3416,2025-01-16 00:00:00,desconocido,"['MACD_hist', 'ATR']",-143.4699999999998,1.0
 compra,3473.63,3417,2025-01-17 00:00:00,desconocido,"['Ichimoku_Tenkan', 'ATR']",,
@@ -687,15 +685,13 @@ compra,3284.0,3420,2025-01-20 00:00:00,desconocido,"['Ichimoku_Tenkan', 'ATR']",
 venta,3327.54,3421,2025-01-21 00:00:00,desconocido,"['MACD_hist', 'ATR']",43.539999999999964,1.0
 compra,3338.21,3423,2025-01-23 00:00:00,desconocido,"['Ichimoku_Tenkan', 'ATR']",,
 venta,3310.09,3424,2025-01-24 00:00:00,desconocido,"['MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-28.11999999999989,1.0
-compra,3318.77,3425,2025-01-25 00:00:00,desconocido,"['MACD_hist', 'ATR']",,
-venta,3232.61,3426,2025-01-26 00:00:00,desconocido,"['MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-86.15999999999985,1.0
 compra,3077.72,3428,2025-01-28 00:00:00,desconocido,"['BB_Lower', 'ATR']",,
 venta,3113.9,3429,2025-01-29 00:00:00,desconocido,"['MACD_hist', 'Ichimoku_Tenkan', 'ATR']",36.18000000000029,1.0
 compra,3247.39,3430,2025-01-30 00:00:00,desconocido,"['Ichimoku_Tenkan', 'ATR']",,
 venta,3300.99,3431,2025-01-31 00:00:00,desconocido,"['MACD_hist', 'ATR']",53.59999999999991,1.0
 compra,2869.68,3433,2025-02-02 00:00:00,desconocido,"['BB_Lower', 'ATR']",,
 venta,2879.9,3434,2025-02-03 00:00:00,desconocido,"['MACD_hist', 'ATR']",10.220000000000255,1.0
-compra,2731.19,3435,2025-02-04 00:00:00,desconocido,"['ADX', 'BB_Lower', 'ATR']",,
+compra,2731.19,3435,2025-02-04 00:00:00,desconocido,"['BB_Lower', 'ATR']",,
 venta,2788.25,3436,2025-02-05 00:00:00,desconocido,"['ADX', 'MACD_hist', 'ATR']",57.059999999999945,1.0
 compra,2686.64,3437,2025-02-06 00:00:00,desconocido,"['ADX', 'BB_Lower', 'ATR']",,
 venta,2622.1,3438,2025-02-07 00:00:00,desconocido,"['ADX', 'MACD_hist', 'Ichimoku_Tenkan', 'ATR']",-64.53999999999996,1.0
