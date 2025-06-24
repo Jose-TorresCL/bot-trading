@@ -262,7 +262,12 @@ def backtesting(
                     "indice": i,
                     "timestamp": timestamp,
                     "tipo_mercado": tipo_mercado,
-                    "indicadores_usados": usados_compra
+                    "indicadores_usados": usados_compra,
+                    "rsi": rsi_limit_compra,
+                    "adx": adx_limit,
+                    "votes": min_votes_compra,
+                    "sl": sl_mult,
+                    "tp": tp_mult
                 })
                 posicion_abierta = True
                 precio_compra = precio_actual
@@ -274,30 +279,25 @@ def backtesting(
                     stop_loss_val = None
                     take_profit_val = None
         elif posicion_abierta:
-            riesgo = None
-            if atr is not None and atr > 0:
-                stop_loss_val = precio_compra - sl_mult * atr
-                take_profit_val = precio_compra + tp_mult * atr
-                if precio_actual <= stop_loss_val:
-                    riesgo = "vender_por_perdida_atr"
-                elif precio_actual >= take_profit_val:
-                    riesgo = "vender_por_ganancia_atr"
-            else:
-                riesgo = gestion_riesgo(
-                    precio_compra,
-                    precio_actual,
-                    stop_loss=sl_mult / 100,
-                    take_profit=tp_mult / 100,
-                    trailing_stop=True
-                )
-
-            resultado_venta, usados_venta = estrategia_venta(
+            riesgo = gestion_riesgo(
+                precio_compra,
+                precio_actual,
                 indicadores,
-                rsi_limit=rsi_limit_venta,
-                adx_limit=adx_limit,
-                min_votes=min_votes_venta
+                mejor_precio=None,
+                modo="compra",
+                sl_mult=sl_mult,
+                tp_mult=tp_mult,
+                trailing_stop=True,
+                atr_min=atr_min  # <-- agrega esto
             )
-            if resultado_venta or riesgo is not None:
+            if riesgo and riesgo.get("accion") == "vender":
+                # Ejecutar venta por SL/TP
+                resultado_venta, usados_venta = estrategia_venta(
+                    indicadores,
+                    rsi_limit=rsi_limit_venta,
+                    adx_limit=adx_limit,
+                    min_votes=min_votes_venta
+                )
                 registrar_decisiones("venta", precio_actual, indicadores, "simulada")
                 duracion = i - compra_indice if compra_indice is not None else None
                 usados_final = usados_venta.copy()
@@ -311,7 +311,12 @@ def backtesting(
                     "timestamp": timestamp,
                     "duracion": duracion,
                     "tipo_mercado": tipo_mercado,
-                    "indicadores_usados": usados_final
+                    "indicadores_usados": usados_final,
+                    "rsi": rsi_limit_venta,
+                    "adx": adx_limit,
+                    "votes": min_votes_venta,
+                    "sl": sl_mult,
+                    "tp": tp_mult
                 })
                 if duracion is not None:
                     duraciones.append(duracion)
@@ -410,9 +415,9 @@ def backtesting(
         if r["tipo"] == "venta" and r.get("ganancia") is not None:
             usados = r.get("indicadores_usados", [])
             if r["ganancia"] > 0:
-                indicadores_ganadores.extend(usados)
+                indicadores_ganadores.extend([u for u in usados if isinstance(u, str)])
             else:
-                indicadores_perdedores.extend(usados)
+                indicadores_perdedores.extend([u for u in usados if isinstance(u, str)])
 
     # NUEVO: Análisis de indicadores usados en compras
     indicadores_compras = []
@@ -519,7 +524,7 @@ def ejecutar_backtesting(csv_file):
 if __name__ == "__main__":
     import logging
     logger = logging.getLogger()
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(logging.WARNING)  # Solo warnings y errores en consola
     file_handler = logging.FileHandler("backtesting.log", encoding="utf-8")
     file_handler.setLevel(logging.INFO)
     file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
@@ -534,39 +539,45 @@ if __name__ == "__main__":
 
     logger.info("🚀 Iniciando backtesting...")
     client = connect_to_binance()
-    df = cargar_y_combinar_datos("historial_trading.csv", client)
+    df = cargar_y_combinar_datos("historial_trading.csv", client, meses=12)
     if df is not None:
         mostrar_rango_temporal(df)
-        rsi = 14
-        adx = 25
-        sl = 1.5
-        tp = 3
-        votes = 2
-        atr_min = None  # Define aquí si lo usas
+        # Cargar parámetros óptimos
+        with open("parametros_seleccionados.json") as f:
+            params = json.load(f)
+        rsi = params.get("RSI_LIMIT_COMPRA", 14)
+        adx = params.get("ADX_LIMIT", 25)
+        sl = params.get("SL_MULT", 1.5)
+        tp = params.get("TP_MULT", 3)
+        votes = params.get("MIN_VOTES", 2)
+        atr_min = params.get("ATR_MIN", None)
+        rsi_venta = params.get("RSI_LIMIT_VENTA", 86)
+
         resultados, resumen = backtesting(
             df,
             rsi_limit_compra=rsi,
-            rsi_limit_venta=100 - rsi,
+            rsi_limit_venta=rsi_venta,
             adx_limit=adx,
             min_votes_compra=votes,
             min_votes_venta=votes,
             sl_mult=sl,
             tp_mult=tp,
-            atr_min=atr_min  # si lo usas
+            atr_min=atr_min
         )
-        decision = convertir_timestamps_a_str(df.to_dict(orient="records"))
-        json.dump(decision, open("decision.json", "w"), indent=4)
+        # Solo imprime el resumen y los indicadores más frecuentes
         print(f"Filas después del filtro de meses: {len(df)}")
         mostrar_rango_temporal(df)
-        print(df["timestamp"].head(10))
-        print(df["timestamp"].dtype)
-        print("Primeras filas de precios:")
-        print(df[["close", "high", "low", "open"]].head(10))
-        print("Tipos de datos:")
-        print(df[["close", "high", "low", "open"]].dtypes)
-        print("Valores NaN por columna:")
-        print(df.isna().sum())
+        # --- Elimina o comenta los prints detallados de timestamp, precios, tipos de datos, NaN, etc. ---
+        # print(df["timestamp"].head(10))
+        # print(df["timestamp"].dtype)
+        # print("Primeras filas de precios:")
+        # print(df[["close", "high", "low", "open"]].head(10))
+        # print("Tipos de datos:")
+        # print(df[["close", "high", "low", "open"]].dtypes)
+        # print("Valores NaN por columna:")
+        # print(df.isna().sum())
 
+        # --- Si quieres, puedes dejar solo este resumen de indicadores ---
         indicadores_lista = calcular_todos_los_indicadores(df)
         for ind in ["RSI", "ATR", "ADX"]:
             vals = [x.get(ind) for x in indicadores_lista if x.get(ind) is not None and not pd.isna(x.get(ind))]

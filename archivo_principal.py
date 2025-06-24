@@ -37,6 +37,26 @@ logger.handlers = []
 logger.addHandler(file_handler)
 logger.addHandler(console_handler)
 
+# Cargar parámetros robustos automáticamente
+with open('parametros_seleccionados.json') as f:
+    params = json.load(f)
+
+RSI_LIMIT_COMPRA = params.get('RSI_LIMIT_COMPRA')
+ADX_LIMIT = params.get('ADX_LIMIT')
+MIN_VOTES = params.get('MIN_VOTES')
+SL_MULT = params.get('SL_MULT')
+TP_MULT = params.get('TP_MULT')
+
+tipo = params.get('tipo')
+precio = params.get('precio')
+indice = params.get('indice')
+timestamp = params.get('timestamp')
+tipo_mercado = params.get('tipo_mercado')
+indicadores_usados = params.get('indicadores_usados')
+ganancia = params.get('ganancia')
+duracion = params.get('duracion')
+# ...y así con todos los que uses
+
 def main():
     print("=======================================")
     print("      BOT DE TRADING AUTOMÁTICO")

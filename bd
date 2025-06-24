@@ -1,0 +1,33 @@
+[1mdiff --git a/__pycache__/gestor_indicadores.cpython-311.pyc b/__pycache__/gestor_indicadores.cpython-311.pyc[m
+[1mindex c899b75..0df3001 100644[m
+Binary files a/__pycache__/gestor_indicadores.cpython-311.pyc and b/__pycache__/gestor_indicadores.cpython-311.pyc differ
+[1mdiff --git a/archivo_principal.py b/archivo_principal.py[m
+[1mindex bb7a6b6..057cc74 100644[m
+[1m--- a/archivo_principal.py[m
+[1m+++ b/archivo_principal.py[m
+[36m@@ -37,6 +37,25 @@[m [mlogger.handlers = [][m
+ logger.addHandler(file_handler)[m
+ logger.addHandler(console_handler)[m
+ [m
+[32m+[m[32m# Cargar parámetros robustos automáticamente[m
+[32m+[m[32mwith open('parametros_seleccionados.json') as f:[m
+[32m+[m[32m    params = json.load(f)[m
+[32m+[m
+[32m+[m[32mrsi_valor = params['rsi'][m
+[32m+[m[32madx_valor = params['adx'][m
+[32m+[m[32mvotes_valor = params['votes'][m
+[32m+[m
+[32m+[m[32m# Ahora puedes usar, por ejemplo:[m
+[32m+[m[32mtipo = params['tipo'][m
+[32m+[m[32mprecio = params['precio'][m
+[32m+[m[32mindice = params['indice'][m
+[32m+[m[32mtimestamp = params['timestamp'][m
+[32m+[m[32mtipo_mercado = params['tipo_mercado'][m
+[32m+[m[32mindicadores_usados = params['indicadores_usados'][m
+[32m+[m[32mganancia = params['ganancia'][m
+[32m+[m[32mduracion = params['duracion'][m
+[32m+[m[32m# ...y pásalos a tus funciones/estrategias según corresponda[m
+[32m+[m
+ def main():[m
+     print("=======================================")[m
+     print("      BOT DE TRADING AUTOMÁTICO")[m

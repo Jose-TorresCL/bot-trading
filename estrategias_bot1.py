@@ -79,18 +79,19 @@ def gestion_riesgo(
     sl_mult=None,
     tp_mult=None,
     trailing_stop=None,
-    margen_seguridad=0.001
+    margen_seguridad=0.001,
+    atr_min=None  # <-- agrega esto
 ):
     try:
         sl_mult = sl_mult if sl_mult is not None else config_estrategias.SL_MULT
         tp_mult = tp_mult if tp_mult is not None else config_estrategias.TP_MULT
         trailing_stop = trailing_stop if trailing_stop is not None else config_estrategias.TRAILING_STOP
+        atr_min = atr_min if atr_min is not None else getattr(config_estrategias, "ATR_MIN", 2)
 
-        # ATR dinámico: podrías ajustar este cálculo según volatilidad, aquí es ejemplo básico:
         atr = indicadores.get("ATR", 0)
-        if atr < config_estrategias.ATR_MIN:
-            logger.warning(f"ATR ({atr:.2f}) menor que ATR_MIN ({config_estrategias.ATR_MIN}), usando ATR_MIN para gestión de riesgo.")
-            atr = config_estrategias.ATR_MIN
+        if atr < atr_min:
+            logger.warning(f"ATR ({atr:.2f}) menor que ATR_MIN ({atr_min}), usando ATR_MIN para gestión de riesgo.")
+            atr = atr_min
         if atr <= 0:
             atr = max(0.01 * precio_compra, 1e-6)
 

@@ -1,7 +1,10 @@
 import logging
 import time
+import json
+import os
+import pandas as pd
 from conexion_api import get_historical_data, connect_to_binance
-from estrategias_bot1 import estrategia_compra, estrategia_venta, registrar_decisiones
+from estrategias_bot1 import estrategia_compra, estrategia_venta, registrar_decisiones, gestion_riesgo
 from gestor_indicadores import calcular_todos_los_indicadores, evaluar_indicadores
 
 # Configuración de logs
@@ -83,47 +86,142 @@ def tomar_decision(indicadores):
     return None
 
 def ejecutar_ciclo_paper_trading(intervalo=60):
-    saldo = 1000.0  # Saldo inicial simulado en USDT
-    posicion = None  # None, "compra" o "venta"
-    precio_entrada = 0.0
+    # Cargar parámetros óptimos
+    with open("parametros_seleccionados.json") as f:
+        params = json.load(f)
+
+    # Estado inicial
+    saldo = 10000  # saldo simulado inicial
+    operacion_abierta = False
+    precio_entrada = None
+    timestamp_entrada = None
+    historial = []
+
+    # Si existe un historial previo, cargarlo
+    if os.path.exists("historial_papertrading.json"):
+        with open("historial_papertrading.json") as f:
+            historial = json.load(f)
+
+    logger = logging.getLogger()
+    logger.info("🔄 Iniciando ciclo de paper trading...")
 
     while True:
-        historical_data = ejecutar_ciclo()  # Ejecuta el ciclo y obtiene los datos
-        if historical_data is None:
-            time.sleep(intervalo)
-            continue
+        try:
+            client = connect_to_binance()
+            datos = get_historical_data(client, symbol="ETHUSDT", interval="1m", limit=200)
+            df = pd.DataFrame(datos)
+            if df.empty:
+                logger.warning("No hay datos nuevos.")
+                time.sleep(intervalo)
+                continue
 
-        # Acceso al último precio
-        if hasattr(historical_data, "iloc"):
-            precio_actual = historical_data.iloc[-1]["close"]
-        else:
-            precio_actual = historical_data[-1].get("close", 0)
+            indicadores = calcular_todos_los_indicadores(df)[-1]  # último registro
+            precio_actual = df["close"].iloc[-1]
+            timestamp_actual = df["timestamp"].iloc[-1]
 
-        # Lógica de gestión de posición
-        if posicion is None:
-            # Solo abrimos posición si no hay ninguna abierta
-            decision = tomar_decision(historical_data.iloc[-1])
-            if decision == "compra":
-                posicion = "compra"
-                precio_entrada = precio_actual
-                logging.info(f"🟢 COMPRA SIMULADA a {precio_actual:.2f} USDT")
-            elif decision == "venta":
-                posicion = "venta"
-                precio_entrada = precio_actual
-                logging.info(f"🔴 VENTA SIMULADA a {precio_actual:.2f} USDT")
-        else:
-            # Si hay una posición abierta, buscamos la señal contraria para cerrar
-            decision = tomar_decision(historical_data.iloc[-1])
-            if (posicion == "compra" and decision == "venta") or (posicion == "venta" and decision == "compra"):
-                # Calcula ganancia/pérdida
-                if posicion == "compra":
-                    ganancia = precio_actual - precio_entrada
+            if not operacion_abierta:
+                resultado, usados = estrategia_compra(
+                    indicadores,
+                    rsi_limit=params["RSI_LIMIT_COMPRA"],
+                    adx_limit=params["ADX_LIMIT"],
+                    min_votes=params["MIN_VOTES"]
+                )
+                if resultado:
+                    operacion_abierta = True
+                    precio_entrada = precio_actual
+                    timestamp_entrada = timestamp_actual
+                    logger.info(f"🟢 COMPRA SIMULADA a {precio_entrada}")
+            else:
+                # Gestión de riesgo: SL y TP
+                sl = params["SL_MULT"]
+                tp = params["TP_MULT"]
+                if precio_actual <= precio_entrada - sl:
+                    ganancia = -sl
+                    logger.info(f"🛑 Stop Loss alcanzado. Venta simulada a {precio_actual}, pérdida: {ganancia}")
+                    motivo = "SL"
+                elif precio_actual >= precio_entrada + tp:
+                    ganancia = tp
+                    logger.info(f"🎯 Take Profit alcanzado. Venta simulada a {precio_actual}, ganancia: {ganancia}")
+                    motivo = "TP"
                 else:
-                    ganancia = precio_entrada - precio_actual
+                    # Aquí puedes agregar lógica para venta por señal
+                    resultado, usados = estrategia_venta(
+                        indicadores,
+                        rsi_limit=params["RSI_LIMIT_VENTA"],
+                        adx_limit=params["ADX_LIMIT"],
+                        min_votes=params["MIN_VOTES"]
+                    )
+                    if resultado:
+                        ganancia = precio_actual - precio_entrada
+                        motivo = "Señal"
+                        logger.info(f"🔴 VENTA SIMULADA a {precio_actual} | Ganancia: {ganancia:.2f} | Motivo: {motivo}")
+                        logger.info(f"Saldo simulado actual: {saldo:.2f} USDT")
+                        logger.info(f"Historial de operaciones: {historial[-1]}")
+
+                        # Registrar operación
+                        operacion = {
+                            "tipo": "venta",
+                            "precio_entrada": precio_entrada,
+                            "precio_salida": precio_actual,
+                            "ganancia": ganancia,
+                            "timestamp_entrada": timestamp_entrada,
+                            "timestamp_salida": timestamp_actual,
+                            "motivo_cierre": "TP" if ganancia > 0 else "SL",
+                            "saldo_post": saldo
+                        }
+                        historial.append(operacion)
+                        with open("historial_papertrading.json", "w") as f:
+                            json.dump(historial, f, indent=4)
+
+                        operacion_abierta = False
+                        precio_entrada = None
+                        timestamp_entrada = None
+                    else:
+                        # Gestión de riesgo avanzada
+                        riesgo = gestion_riesgo(
+                            precio_compra=precio_entrada,
+                            precio_actual=precio_actual,
+                            indicadores=indicadores,
+                            mejor_precio=None,
+                            modo="compra",
+                            sl_mult=params["SL_MULT"],
+                            tp_mult=params["TP_MULT"],
+                            trailing_stop=True,
+                            atr_min=params["ATR_MIN"]  # <-- agrega esto
+                        )
+                        if riesgo and riesgo.get("accion") == "vender":
+                            ganancia = precio_actual - precio_entrada
+                            motivo = riesgo.get("motivo")
+                            logger.info(f"🔴 VENTA SIMULADA a {precio_actual} | Ganancia: {ganancia:.2f} | Motivo: {motivo}")
+                            logger.info(f"Saldo simulado actual: {saldo:.2f} USDT")
+                            logger.info(f"Historial de operaciones: {historial[-1]}")
+
+                            # Registrar operación
+                            operacion = {
+                                "tipo": "venta",
+                                "precio_entrada": precio_entrada,
+                                "precio_salida": precio_actual,
+                                "ganancia": ganancia,
+                                "timestamp_entrada": timestamp_entrada,
+                                "timestamp_salida": timestamp_actual,
+                                "motivo_cierre": "TP" if ganancia > 0 else "SL",
+                                "saldo_post": saldo
+                            }
+                            historial.append(operacion)
+                            with open("historial_papertrading.json", "w") as f:
+                                json.dump(historial, f, indent=4)
+
+                            operacion_abierta = False
+                            precio_entrada = None
+                            timestamp_entrada = None
+                        else:
+                            time.sleep(intervalo)
+                            continue
+
                 saldo += ganancia
-                logging.info(f"💰 CERRANDO {posicion.upper()} a {precio_actual:.2f} USDT | Ganancia: {ganancia:.2f} | Saldo: {saldo:.2f}")
-                posicion = None
-                precio_entrada = 0.0
+
+        except Exception as e:
+            logger.error(f"Error en ciclo de paper trading: {e}")
 
         time.sleep(intervalo)
 

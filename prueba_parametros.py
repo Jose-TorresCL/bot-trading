@@ -14,6 +14,7 @@ adx_limits = [20, 23, 25]
 min_votes = [3, 4, 5]
 sl_mults = [1.0, 1.5, 2.0]
 tp_mults = [2.0, 3.0, 3.5]
+ATR_MIN_range = [0.5, 1, 2, 3, 5]
 
 resultados = []
 fallos = []
@@ -65,66 +66,68 @@ for rsi in rsi_limits:
         for votes in min_votes:
             for sl in sl_mults:
                 for tp in tp_mults:
-                    print(f"\n=== Probando combinación {comb_num}/{comb_total} ===")
-                    
-                    # Modifica los parámetros en config_estrategias
-                    config_estrategias.RSI_LIMIT_COMPRA = rsi
-                    config_estrategias.RSI_LIMIT_VENTA = 100 - rsi
-                    config_estrategias.ADX_LIMIT = adx
-                    config_estrategias.MIN_VOTES_COMPRA = votes
-                    config_estrategias.MIN_VOTES_VENTA = votes
-                    config_estrategias.SL_MULT = sl
-                    config_estrategias.TP_MULT = tp
+                    for atr_min in ATR_MIN_range:
+                        print(f"\n=== Probando combinación {comb_num}/{comb_total} ===")
+                        
+                        # Modifica los parámetros en config_estrategias
+                        config_estrategias.RSI_LIMIT_COMPRA = rsi
+                        config_estrategias.RSI_LIMIT_VENTA = 100 - rsi
+                        config_estrategias.ADX_LIMIT = adx
+                        config_estrategias.MIN_VOTES_COMPRA = votes
+                        config_estrategias.MIN_VOTES_VENTA = votes
+                        config_estrategias.SL_MULT = sl
+                        config_estrategias.TP_MULT = tp
 
-                    # Recarga los módulos para asegurar que los cambios se apliquen
-                    importlib.reload(config_estrategias)
-                    importlib.reload(estrategias_bot1)
-                    importlib.reload(backtesting)
+                        # Recarga los módulos para asegurar que los cambios se apliquen
+                        importlib.reload(config_estrategias)
+                        importlib.reload(estrategias_bot1)
+                        importlib.reload(backtesting)
 
-                    # Imprime los parámetros actuales para verificar
-                    print(f"Parámetros actuales: RSI={rsi}, ADX={adx}, VOTES={votes}, SL={sl}, TP={tp}")
+                        # Imprime los parámetros actuales para verificar
+                        print(f"Parámetros actuales: RSI={rsi}, ADX={adx}, VOTES={votes}, SL={sl}, TP={tp}, ATR_MIN={atr_min}")
 
-                    try:
-                        # Ejecuta el backtesting con el archivo acumulado
-                        resultados_trades, resumen = backtesting.backtesting(
-    df,
-    rsi_limit_compra=rsi,
-    rsi_limit_venta=100 - rsi,
-    adx_limit=adx,
-    min_votes_compra=votes,
-    min_votes_venta=votes,
-    sl_mult=sl,
-    tp_mult=tp
-)
-                        # Verifica si el resumen cambia entre iteraciones
-                        print(f"Resumen obtenido: {resumen}")
-                        # Asegura que los resultados sean únicos
-                        resultados.append({
-                            "RSI_LIMIT_COMPRA": rsi,
-                            "RSI_LIMIT_VENTA": 100 - rsi,
-                            "ADX_LIMIT": adx,
-                            "MIN_VOTES": votes,
-                            "SL_MULT": sl,
-                            "TP_MULT": tp,
-                            **resumen
-                        })
-                        print(f"Probado: RSI={rsi}, ADX={adx}, VOTES={votes}, SL={sl}, TP={tp} -> {resumen}")
-                    except Exception as e:
-                        fallo = {
-                            "RSI_LIMIT_COMPRA": rsi,
-                            "RSI_LIMIT_VENTA": 100 - rsi,
-                            "ADX_LIMIT": adx,
-                            "MIN_VOTES": votes,
-                            "SL_MULT": sl,
-                            "TP_MULT": tp,
-                            "error": str(e),
-                            "traceback": traceback.format_exc()
-                        }
-                        fallos.append(fallo)
-                        print(f"❌ Error en combinación {comb_num}: {fallo}")
-                    finally:
-                        # Incrementar el contador incluso si ocurre un error
-                        comb_num += 1
+                        try:
+                            # Ejecuta el backtesting con el archivo acumulado
+                            resultados_trades, resumen = backtesting.backtesting(
+        df,
+        rsi_limit_compra=rsi,
+        rsi_limit_venta=100 - rsi,
+        adx_limit=adx,
+        min_votes_compra=votes,
+        min_votes_venta=votes,
+        sl_mult=sl,
+        tp_mult=tp,
+        atr_min=atr_min
+    )
+                            # Verifica si el resumen cambia entre iteraciones
+                            print(f"Resumen obtenido: {resumen}")
+                            # Asegura que los resultados sean únicos
+                            resultados.append({
+                                "RSI_LIMIT_COMPRA": rsi,
+                                "RSI_LIMIT_VENTA": 100 - rsi,
+                                "ADX_LIMIT": adx,
+                                "MIN_VOTES": votes,
+                                "SL_MULT": sl,
+                                "TP_MULT": tp,
+                                **resumen
+                            })
+                            print(f"Probado: RSI={rsi}, ADX={adx}, VOTES={votes}, SL={sl}, TP={tp} -> {resumen}")
+                        except Exception as e:
+                            fallo = {
+                                "RSI_LIMIT_COMPRA": rsi,
+                                "RSI_LIMIT_VENTA": 100 - rsi,
+                                "ADX_LIMIT": adx,
+                                "MIN_VOTES": votes,
+                                "SL_MULT": sl,
+                                "TP_MULT": tp,
+                                "error": str(e),
+                                "traceback": traceback.format_exc()
+                            }
+                            fallos.append(fallo)
+                            print(f"❌ Error en combinación {comb_num}: {fallo}")
+                        finally:
+                            # Incrementar el contador incluso si ocurre un error
+                            comb_num += 1
 
 # Guarda los resultados para análisis posterior
 with open("resultados_parametros.json", "w", encoding="utf-8") as f:
@@ -144,9 +147,21 @@ def mejor_combinacion(resultados, metrica="ganancia_total"):
 print("\n=== Grid search completado ===")
 print(f"Total combinaciones exitosas: {len(resultados)}")
 print(f"Total combinaciones con error: {len(fallos)}")
+# Supón que 'mejor' es la mejor combinación encontrada (un dict)
 mejor = mejor_combinacion(resultados, metrica="ganancia_total")
 if mejor:
     print("\nMejor combinación según ganancia_total:")
     print(json.dumps(mejor, indent=4, ensure_ascii=False))
+    # Guarda SOLO los parámetros relevantes
+    parametros_finales = {k: mejor[k] for k in [
+        "RSI_LIMIT_COMPRA", "RSI_LIMIT_VENTA", "ADX_LIMIT", "MIN_VOTES", "SL_MULT", "TP_MULT"
+    ] if k in mejor}
+    # Haz un respaldo simple antes de sobrescribir
+    if os.path.exists("parametros_seleccionados.json"):
+        import shutil
+        shutil.copy("parametros_seleccionados.json", "parametros_seleccionados_backup.json")
+    with open('parametros_seleccionados.json', 'w', encoding='utf-8') as f:
+        json.dump(parametros_finales, f, indent=4, ensure_ascii=False)
+    print("✅ Parámetros óptimos actualizados en parametros_seleccionados.json (respaldo en parametros_seleccionados_backup.json)")
 else:
     print("No se pudo determinar la mejor combinación (¿quizás no hay resultados exitosos?).")
