@@ -4,4 +4,11 @@
 !config.env
 !preguntas.env
 *.pyc
+__pycache__/# .gitignore
+.venv/
 __pycache__/
+*.pyc
+*.log
+*.csv
+*.json
+bd/
