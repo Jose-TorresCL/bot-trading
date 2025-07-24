@@ -12,8 +12,11 @@ from config_estrategias import (
     RSI_LIMIT_COMPRA, MIN_VOTES_COMPRA,
     RSI_LIMIT_VENTA, MIN_VOTES_VENTA,
     SL_MULT, TP_MULT,
-    ADX_LIMIT   # <-- Agrega esto
+    ADX_LIMIT
 )
+from concurrent.futures import ProcessPoolExecutor
+import warnings
+warnings.filterwarnings("ignore")
 
 def configurar_logging():
     logger = logging.getLogger()
@@ -32,6 +35,14 @@ def configurar_logging():
     return logger
 
 logger = configurar_logging()
+
+# Filtrar mensajes que contengan "ATR"
+class ATRFilter(logging.Filter):
+    def filter(self, record):
+        return "ATR" not in record.getMessage()
+
+for handler in logger.handlers:
+    handler.addFilter(ATRFilter())
 
 # Convierte todos los Timestamps a string
 def convertir_timestamps_a_str(obj):
@@ -56,11 +67,11 @@ def convertir_timestamps_a_str(obj):
 def cargar_y_combinar_datos(
     csv_file,
     client,
-    symbol="ETHUSDT",
+    symbol="WLDUSDT",
     interval="1m",
     limit=3000,
     acum_file="historial_trading_acum.csv",
-    meses=6  # <-- Nuevo parámetro para rango de meses
+    meses=12  # <-- Nuevo parámetro para rango de meses
 ):
     """
     Carga el CSV de historial, obtiene datos en tiempo real y los fusiona.
@@ -84,7 +95,7 @@ def cargar_y_combinar_datos(
 
         # Obtener datos en tiempo real
         try:
-            live_data = get_historical_data(client, symbol=symbol, interval=interval, limit=limit)
+            live_data = get_historical_data(client, symbol=symbol, interval=interval, limit=200)
             df_live = pd.DataFrame(live_data)
             if df_live.empty:
                 logger.warning("⚠️ No se obtuvieron datos en tiempo real, se utilizarán solo datos históricos.")
@@ -98,6 +109,10 @@ def cargar_y_combinar_datos(
         all_cols = sorted(set(df_historical.columns) | set(df_live.columns))
         df_historical = df_historical.reindex(columns=all_cols)
         df_live = df_live.reindex(columns=all_cols)
+
+        # Asignar el símbolo a los DataFrames
+        df_historical["symbol"] = symbol
+        df_live["symbol"] = symbol
 
         # Fusionar y eliminar duplicados por clave (por ejemplo 'timestamp' y 'symbol')
         unique_keys = [col for col in ['timestamp', 'symbol', 'open_time'] if col in all_cols]
@@ -158,8 +173,11 @@ def cargar_y_combinar_datos(
                 rango_ts = int(rango.timestamp() * 1000)
                 df_combined = df_combined[df_combined["timestamp"] >= rango_ts].copy()
                 logger.info(f"✅ Filtrado a los últimos {meses} meses: {len(df_combined)} registros.")
-            else:
-                logger.warning("No se pudo detectar un timestamp válido para filtrar por fecha.")
+
+        # --- FILTRAR POR SÍMBOLO ---
+        if "symbol" in df_combined.columns:
+            df_combined = df_combined[df_combined["symbol"] == symbol].copy()
+            logger.info(f"✅ Filtrado por símbolo {symbol}: {len(df_combined)} registros.")
 
         # Limpiar filas con NaN en columnas clave
         columnas_clave = ["timestamp", "close", "open", "high", "low"]
@@ -214,8 +232,17 @@ def backtesting(
     min_votes_venta=None,
     sl_mult=None,
     tp_mult=None,
-    atr_min=None   # <-- AGREGA ESTA LÍNEA
+    atr_min=None,   # <-- AGREGA ESTA LÍNEA
+    max_duracion=None
 ):
+    # --- AÑADE ESTE BLOQUE ---
+    class ATRFilter(logging.Filter):
+        def filter(self, record):
+            return "ATR" not in record.getMessage()
+    for handler in logging.getLogger().handlers:
+        handler.addFilter(ATRFilter())
+    # --- FIN DEL BLOQUE ---
+
     # Usa los valores pasados o los de config_estrategias por defecto
     rsi_limit_compra = rsi_limit_compra if rsi_limit_compra is not None else RSI_LIMIT_COMPRA
     rsi_limit_venta = rsi_limit_venta if rsi_limit_venta is not None else RSI_LIMIT_VENTA
@@ -236,6 +263,7 @@ def backtesting(
     precio_compra = None
     compra_indice = None
     duraciones = []
+    MAX_DURACION = max_duracion if max_duracion is not None else 50  # máximo de velas en una operación
 
     for i, indicadores in zip(df.index, indicadores_lista):
         if not isinstance(indicadores, dict):
@@ -323,6 +351,32 @@ def backtesting(
                 posicion_abierta = False
                 precio_compra = None
                 compra_indice = None
+        if posicion_abierta:
+            duracion = i - compra_indice if compra_indice is not None else None
+            if duracion is not None and duracion > MAX_DURACION:
+                # Forzar venta por duración máxima
+                registrar_decisiones("venta", precio_actual, indicadores, "simulada")
+                resultados.append({
+                    "tipo": "venta",
+                    "precio": precio_actual,
+                    "indice": i,
+                    "ganancia": precio_actual - precio_compra if precio_compra is not None else None,
+                    "timestamp": timestamp,
+                    "duracion": duracion,
+                    "tipo_mercado": tipo_mercado,
+                    "indicadores_usados": ["salida_por_duracion"],
+                    "rsi": rsi_limit_venta,
+                    "adx": adx_limit,
+                    "votes": min_votes_venta,
+                    "sl": sl_mult,
+                    "tp": tp_mult
+                })
+                if duracion is not None:
+                    duraciones.append(duracion)
+                posicion_abierta = False
+                precio_compra = None
+                compra_indice = None
+                continue  # Salta al siguiente ciclo
 
     # Métricas extendidas con validaciones
     total_compras = sum(1 for r in resultados if r["tipo"] == "compra")
@@ -521,10 +575,53 @@ def ejecutar_backtesting(csv_file):
     }
     return resultados, resumen
 
+def backtesting_con_max_duracion(df, max_duracion, **kwargs):
+    # Pasa max_duracion como argumento a tu función backtesting
+    return max_duracion, backtesting(df, max_duracion=max_duracion, **kwargs)
+
+def guardar_resultados_por_par(symbol, meses, resultados, resumen):
+    # Guarda los resultados y resumen en archivos separados por par y periodo
+    resultados_file = f"resultados_{symbol}_{meses}m.csv"
+    resumen_file = f"resumen_{symbol}_{meses}m.csv"
+    pd.DataFrame(resultados).to_csv(resultados_file, index=False)
+    pd.DataFrame([resumen]).to_csv(resumen_file, index=False)
+    print(f"✅ Resultados guardados en {resultados_file} y {resumen_file}")
+
+def graficas_comparativas(resumenes, symbols, meses_list):
+    # Graficar comparativas de ganancia total, winrate y drawdown entre pares y periodos
+    df_comp = pd.DataFrame(resumenes)
+    plt.figure(figsize=(12, 5))
+    for metric in ["ganancia_total", "winrate", "profit_factor", "max_drawdown"]:
+        plt.clf()
+        for symbol in symbols:
+            df_symbol = df_comp[df_comp["symbol"] == symbol]
+            plt.plot(df_symbol["meses"], df_symbol[metric], marker="o", label=symbol)
+        plt.title(f"Comparativa de {metric} entre pares y periodos")
+        plt.xlabel("Meses")
+        plt.ylabel(metric)
+        plt.legend()
+        plt.grid()
+        plt.tight_layout()
+        plt.savefig(f"comparativa_{metric}.png")
+        print(f"✅ Gráfico comparativo guardado: comparativa_{metric}.png")
+
+def cargar_historicos_filtrados(csv_file, symbol, meses):
+    import pandas as pd
+    df = pd.read_csv(csv_file)
+    df = df[df["symbol"] == symbol].copy()
+    df["timestamp"] = pd.to_numeric(df["timestamp"], errors="coerce")
+    now = pd.Timestamp.now()
+    rango = now - pd.DateOffset(months=meses)
+    rango_ts = int(rango.timestamp() * 1000)
+    df = df[df["timestamp"] >= rango_ts].copy()
+    columnas_clave = ["timestamp", "close", "open", "high", "low"]
+    columnas_presentes = [col for col in columnas_clave if col in df.columns]
+    df = df.dropna(subset=columnas_presentes)
+    return df
+
 if __name__ == "__main__":
-    import logging
     logger = logging.getLogger()
-    logger.setLevel(logging.WARNING)  # Solo warnings y errores en consola
+    logger.setLevel(logging.WARNING)
     file_handler = logging.FileHandler("backtesting.log", encoding="utf-8")
     file_handler.setLevel(logging.INFO)
     file_formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
@@ -537,48 +634,51 @@ if __name__ == "__main__":
     logger.addHandler(file_handler)
     logger.addHandler(console_handler)
 
-    logger.info("🚀 Iniciando backtesting...")
+    logger.info("🚀 Iniciando backtesting múltiple...")
     client = connect_to_binance()
-    df = cargar_y_combinar_datos("historial_trading.csv", client, meses=12)
-    if df is not None:
-        mostrar_rango_temporal(df)
-        # Cargar parámetros óptimos
-        with open("parametros_seleccionados.json") as f:
-            params = json.load(f)
-        rsi = params.get("RSI_LIMIT_COMPRA", 14)
-        adx = params.get("ADX_LIMIT", 25)
-        sl = params.get("SL_MULT", 1.5)
-        tp = params.get("TP_MULT", 3)
-        votes = params.get("MIN_VOTES", 2)
-        atr_min = params.get("ATR_MIN", None)
-        rsi_venta = params.get("RSI_LIMIT_VENTA", 86)
 
-        resultados, resumen = backtesting(
-            df,
-            rsi_limit_compra=rsi,
-            rsi_limit_venta=rsi_venta,
-            adx_limit=adx,
-            min_votes_compra=votes,
-            min_votes_venta=votes,
-            sl_mult=sl,
-            tp_mult=tp,
-            atr_min=atr_min
-        )
-        # Solo imprime el resumen y los indicadores más frecuentes
-        print(f"Filas después del filtro de meses: {len(df)}")
-        mostrar_rango_temporal(df)
-        # --- Elimina o comenta los prints detallados de timestamp, precios, tipos de datos, NaN, etc. ---
-        # print(df["timestamp"].head(10))
-        # print(df["timestamp"].dtype)
-        # print("Primeras filas de precios:")
-        # print(df[["close", "high", "low", "open"]].head(10))
-        # print("Tipos de datos:")
-        # print(df[["close", "high", "low", "open"]].dtypes)
-        # print("Valores NaN por columna:")
-        # print(df.isna().sum())
+    # --- Configura aquí los pares y periodos que quieres analizar ---
+    symbols = ["WLDUSDT", "BTCUSDT", "ETHUSDT", "BNBUSDT"]
+    meses_list = [3, 6, 12]
 
-        # --- Si quieres, puedes dejar solo este resumen de indicadores ---
-        indicadores_lista = calcular_todos_los_indicadores(df)
-        for ind in ["RSI", "ATR", "ADX"]:
-            vals = [x.get(ind) for x in indicadores_lista if x.get(ind) is not None and not pd.isna(x.get(ind))]
-            print(f"Valores válidos de {ind}: {len(vals)}")
+    resumenes = []
+    for symbol in symbols:
+        for meses in meses_list:
+            print(f"\n🔹 Analizando {symbol} para últimos {meses} meses...")
+            df = cargar_historicos_filtrados("historial_trading_limpio.csv", symbol, meses)
+            if df is not None and not df.empty:
+                mostrar_rango_temporal(df)
+                with open("parametros_seleccionados.json") as f:
+                    params = json.load(f)
+                rsi = params.get("RSI_LIMIT_COMPRA", 14)
+                adx = params.get("ADX_LIMIT", 25)
+                sl = params.get("SL_MULT", 1.5)
+                tp = params.get("TP_MULT", 3)
+                votes = params.get("MIN_VOTES", 2)
+                atr_min = params.get("ATR_MIN", None)
+                rsi_venta = params.get("RSI_LIMIT_VENTA", 86)
+
+                resultados, resumen = backtesting(
+                    df,
+                    rsi_limit_compra=rsi,
+                    rsi_limit_venta=rsi_venta,
+                    adx_limit=adx,
+                    min_votes_compra=votes,
+                    min_votes_venta=votes,
+                    sl_mult=sl,
+                    tp_mult=tp,
+                    atr_min=atr_min
+                )
+                guardar_resultados_por_par(symbol, meses, resultados, resumen)
+                resumen["symbol"] = symbol
+                resumen["meses"] = meses
+                resumenes.append(resumen)
+            else:
+                print(f"⚠️ No se pudo analizar {symbol} (sin datos).")
+
+    # --- Graficar comparativas ---
+    graficas_comparativas(resumenes, symbols, meses_list)
+
+    import pandas as pd
+    df = pd.read_csv("historial_trading_limpio.csv")
+    print(df["symbol"].value_counts())
