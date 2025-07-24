@@ -11,6 +11,7 @@ from transformacion_datos import transformar_datos
 from gestor_indicadores import calcular_todos_los_indicadores
 from estrategias_bot1 import estrategia_compra, estrategia_venta, registrar_decisiones
 from utilidades import log_operation_json
+import glob
 # 🚀 ML opcional
 try:
     from caracteristicas_ML import generar_features, train_random_forest, predict_price
@@ -80,13 +81,13 @@ def main():
             return
 
         # 📥 Descargar datos históricos
-        symbol = "ETHUSDT"
+        symbol = "WLDUSDT"
         interval = "1m"
         limit = 3000
         logging.info(f"📥 Obteniendo {limit} registros de {symbol}...")
 
         # 🔥 PASO 1: Cargar datos históricos desde archivo CSV
-        historical_data = obtener_datos_historicos("historial_trading.csv")
+        historical_data = obtener_datos_historicos("historial_trading_limpio.csv")
         logging.info(f"📊 Registros obtenidos desde CSV: {len(historical_data)}")
 
         # 🔥 PASO 2: Obtener datos en tiempo real desde Binance
@@ -96,6 +97,9 @@ def main():
         # 🔥 PASO 3: Fusionar datos históricos con datos en tiempo real
         df_historical = pd.DataFrame(historical_data)
         df_live = pd.DataFrame(live_data)
+
+        df_historical["symbol"] = symbol
+        df_live["symbol"] = symbol
 
         # Asegúrate de que las columnas coincidan
         missing_cols = set(df_historical.columns) ^ set(df_live.columns)
@@ -161,6 +165,38 @@ def main():
         ejecutar_ciclo()
     else:
         print("Opción no válida. Por favor, ejecuta de nuevo el programa.")
+
+    # Guardar datos de múltiples símbolos como archivos CSV separados
+    symbols = ["WLDUSDT", "BTCUSDT", "ETHUSDT", "BNBUSDT"]  # Agrega los pares que quieras analizar
+    interval = "1m"
+    limit = 3000
+
+    client = connect_to_binance()
+    for symbol in symbols:
+        data = get_historical_data(client, symbol=symbol, interval=interval, limit=limit)
+        df = pd.DataFrame(data)
+        df["symbol"] = symbol  # Agrega la columna symbol
+        df.to_csv(f"historial_{symbol}.csv", index=False)
+        print(f"✅ Datos guardados en historial_{symbol}.csv")
+
+    # --- FUSIONAR TODOS LOS ARCHIVOS EN UNO SOLO ---
+    archivos = [
+        "historial_WLDUSDT.csv",
+        "historial_BTCUSDT.csv",
+        "historial_ETHUSDT.csv",
+        "historial_BNBUSDT.csv"
+    ]
+    dfs = []
+    for f in archivos:
+        df = pd.read_csv(f)
+        # Convierte timestamp a milisegundos si es texto
+        if df["timestamp"].dtype == "object":
+            df["timestamp"] = pd.to_datetime(df["timestamp"], errors="coerce")
+            df["timestamp"] = df["timestamp"].astype("int64") // 10**6  # convierte a ms
+        dfs.append(df)
+    df_final = pd.concat(dfs, ignore_index=True)
+    df_final.to_csv("historial_trading_limpio.csv", index=False)
+    print("✅ Archivo fusionado y timestamp convertido a milisegundos.")
 
 if __name__ == "__main__":
     main()
