@@ -29,10 +29,11 @@ indicadores_config = {
 }
 
 def calcular_todos_los_indicadores(df):
-    # Asegura que los precios sean float
+    # Asegura que los precios sean float y sin NaN
     for col in ["close", "open", "high", "low"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
+    df = df.dropna(subset=["high", "low", "close"])
 
     # RSI
     df["RSI"] = ta.rsi(df["close"], length=14)
@@ -41,8 +42,9 @@ def calcular_todos_los_indicadores(df):
     df["MACD"] = macd["MACD_12_26_9"]
     df["MACD_signal"] = macd["MACDs_12_26_9"]
     df["MACD_hist"] = macd["MACDh_12_26_9"]
-    # ATR
-    df["ATR"] = ta.atr(df["high"], df["low"], df["close"], length=14)
+    # ATR con periodo más largo
+    ATR_PERIOD = 21
+    df["ATR"] = ta.atr(df["high"], df["low"], df["close"], length=ATR_PERIOD)
     # ADX
     adx = ta.adx(df["high"], df["low"], df["close"], length=14)
     df["ADX"] = adx["ADX_14"]
