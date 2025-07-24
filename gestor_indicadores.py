@@ -29,7 +29,7 @@ indicadores_config = {
 }
 
 def calcular_todos_los_indicadores(df):
-    # Asegura que los precios sean float y sin NaN
+        # Asegura que los precios sean float y sin NaN
     for col in ["close", "open", "high", "low"]:
         if col in df.columns:
             df[col] = pd.to_numeric(df[col], errors="coerce")
