@@ -1,0 +1,4 @@
+# Demo BNBUSDT
+symbol: BNBUSDT
+tp_sl_profile: conservador
+months: 1

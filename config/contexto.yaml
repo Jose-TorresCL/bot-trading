@@ -1,0 +1,261 @@
+proyecto:
+  nombre: "Bot de Trading Institucional"
+  autor: "Mijail.reglas lógicas programadas manualmente"
+  actualizado: "2025-09-28"
+  zona_horaria: "Chile/CLST"
+
+repositorio:
+  rama_actual: "probandorama"
+  rama_principal: "main"
+  control_versiones: "Git"
+
+componentes_clave:
+  configuracion: "config/institucional.yaml"
+  cargador_configuracion: "src/config_loader.py"
+  motor_backtesting: "src/core/backtesting.py"
+  orquestador: "src/core/archivo_principal.py"
+  auditorias:
+    sesgo_operativo: "auditoria_sesgo_operativo.md"
+    ordenamiento_componentes: "auditoria_tablas_por_carpeta.md"
+    diagnostico_tecnico_previo: "auditoria_tecnica_y_organizativa.md"
+  scripts_relevantes:
+    - "scripts/ab_sesgo_fix.py"
+    - "scripts/institucional_smoke.py"
+
+historia:
+- "2025-09-30: Fase 2 completada con modelo de costos y veredictos netos por símbolo"
+- "2025-09-30: Decisión institucional de concentración de capital en símbolo único según veredicto neto"
+- "2025-09-30: Integración de changelog técnico automatizado y trazabilidad completa de runs"
+- "2025-09-30: Validación cruzada de veredictos con auditoría de sesgo operativo"
+    - "Integración con Git y GitHub Copilot"
+    - "Uso de CSVs, notebooks y Jupyter para análisis"
+decision_operativa:
+  fecha: "2025-09-30"
+  responsable: "Comité MCP"
+  objetivo: "Seleccionar el símbolo más robusto para operar con capital real"
+  criterio:
+    pf_net_minimo: 1.5
+    expectancy_net_minima: 0
+    drawdown_maximo: 25
+    veredicto_requerido: "ACCEPT"
+  resultado:
+    simbolo_seleccionado: ""  # ← Actualizar según último veredicto ACCEPT
+    modo_operativo: "live"
+    razon: "Cumple PF_net ≥ 1.5, expectancy positiva y drawdown neto bajo"
+  documentacion:
+    changelog: "changelogs/2025-09-30_decision_operativa.md"
+    veredicto: "runs/20250930_XXXX/_costed/ETHUSDT/veredicto.json"
+    resumen_metricas: "session_summary_net.csv"
+    - "Papertrading experimental con resultados mixtos"
+    - "Reorganización profunda de carpetas y rutas"
+proximos_pasos:
+  - "✅ COMPLETADO: Cablear TP/SL dinámico por régimen desde institucional.yaml"
+  - "✅ COMPLETADO: Integrar guardrails Beta A2 completos en motor principal"
+  - "✅ COMPLETADO: Aplicar modelo de costos y emitir veredictos netos"
+  - "✅ COMPLETADO: Documentar decisión de concentración de capital en símbolo único"
+  - "SIGUIENTE: Ejecutar dry-run maestro con datos reales y monitoreo"
+  - "SIGUIENTE: Validar consistencia entre veredicto institucional y auditoría de sesgo operativo"
+  - "FUTURO: Activar modo live para símbolo seleccionado con freeze-config"
+  - "FUTURO: Consolidar dashboard longitudinal con equity_curve y veredictos"
+  - "FUTURO: Automatizar alertas y reportes diarios de performance y veredictos"
+  - "FUTURO: Integrar control de versiones automático de runs y decisiones en GitHub"
+    - "Aprendizaje sobre versionado, trazabilidad y gobernanza técnica"
+
+riesgos_y_alertas:
+  - "Riesgo de sobreajuste en símbolos con baja liquidez"
+  - "Alertar si drawdown neto supera el 25% en modo live"
+  - "Revisar integridad de datos maestros antes de cada run"
+estado_tecnico:
+  modulos: 11
+auditorias_pendientes:
+  - "Revisión técnica de consistencia entre veredicto y auditoría de sesgo operativo"
+  - "Compliance: Validar logs y trazabilidad de runs en GitHub"
+  - "Revisión de performance tras 30 días de operación en modo live"
+  lineas_estimadas: ">1000"
+  notebooks: true
+  framework_backtesting: "activo"
+  multitesting: "implementado"
+  papertrading: "probado (4 días)"
+  archivo_configuracion: "institucional.yaml"
+  loader_configuracion: "config_loader.py"
+  gating_centralizado: "src/policies/gating.py"
+  validacion_configuracion: "estructura YAML validada en runtime con hash congelado"
+  runners:
+    - "scripts/institucional_smoke.py"
+    - "scripts/ab_sesgo_fix.py"
+
+hitos:
+  - "2025-09-12: Congelado institucional.yaml como fuente única de verdad para filtros A2"
+  - "2025-09-20: Reescrito config_loader.py con validación de esquema, metadata y hash SHA-256"
+  - "2025-09-26: Contexto operacional documentado en config/contexto.yaml"
+  - "2025-09-27: Auditoría de sesgo operativo consolidada por símbolo (RSI≤40 / ADX≥20)"
+  recent_achievements:
+  script_renaming:
+    status: "✅ COMPLETADO"
+    description: "Renombrado 'carga un símbolo combinado.py' a 'carga_un_simbolo_combinado.py' (snake_case ASCII)"
+    files_created: ["src/pipeline/carga_un_simbolo_combinado.py"]
+    imports_updated: ["tests/test_backtesting_smoke.py"]
+    outcome: "Script funciona correctamente con imports actualizados"
+  
+  pytest_implementation:
+    status: "✅ COMPLETADO"
+    description: "Implementación completa de pytest test suite para QA y validación"
+    files_created:
+      - "tests/test_config_loader.py"
+      - "tests/test_backtesting_smoke.py"
+    test_results: "3 passed in 2.00s - PASSING"
+    coverage:
+      - "YAML config loader validation"
+      - "Backtesting engine smoke test with mocked dependencies"
+    outcome: "Test suite automático funcional para CI/CD"
+
+  beta_a2_integration:
+    status: "✅ COMPLETADO"
+    description: "Integración completa de lógica Beta A2 con TP/SL dinámico y guardrails institucionales"
+    files_modified:
+      - "src/core/backtesting.py"
+    files_created:
+      - "tests/test_beta_a2_integration.py"
+    features_integrated:
+      tp_sl_dinamico:
+        description: "TP/SL por régimen desde config YAML institucional"
+        function: "_resolve_tp_sl con soporte para tp_sl_by_regime"
+        profiles: ["conservador", "agresivo"]
+      guardrails_beta_a2:
+        description: "Guardrails institucionales completos"
+        functions:
+          - "_check_strict_proximity_guardrail"
+          - "_check_mfe_mae_ratio_guardrail"
+          - "_check_admission_mode"
+          - "_check_bar_tolerance"
+          - "_check_rsi_tolerance"
+          - "_check_neutral_votes_guardrail"
+        integration: "Integrado en _simulate_trades con contadores de estadísticas"
+      configuration_system:
+        description: "Sistema de configuración institucional unificado"
+        functions:
+          - "configure_from_institucional"
+          - "load_institucional_config"
+        yaml_source: "config/institucional.yaml"
+    test_results:
+      - "✅ Configuración Beta A2 OK - conservador: 2, agresivo: 2"
+      - "✅ Backtesting Beta A2 smoke test OK - 0 trades generados"
+      - "✅ TP/SL dinámico por régimen OK"
+      - "✅ Guardrails Beta A2 funcionando correctamente"
+      - "🎯 ¡TODOS LOS TESTS BETA A2 PASARON!"
+    integration_verified: "✅ INTEGRACIÓN BETA A2 VERIFICADA CORRECTAMENTE"
+    outcome: "Sistema Beta A2 completamente integrado en motor de backtesting principal"
+  - "2025-09-28: Suite pytest inicial (loader YAML + smoke de backtesting)"
+
+problemas_recientes:
+  - "La columna precio no existía y se igualó a cierre"
+  - "Desajuste entre variables de características y precio"
+  - "Borrado accidental de código por falta de respaldo"
+  - "Resultados poco realistas por datos mal acumulados"
+  - "Caos de archivos y rutas tras múltiples pruebas"
+  - "Papertrading con pérdida del 12-15% en 4 días"
+  - "Dificultad para comparar resultados entre backtesting y papertrading"
+
+soluciones_aplicadas:
+  - "precio = cierre como estándar"
+  - "Revisión de acumulación de datos"
+  - "Clasificación y renombrado de archivos"
+  - "Uso exclusivo de Git como respaldo"
+  - "Notebooks para análisis de ejecuciones y métricas"
+  - "institucional.yaml como fuente única de verdad"
+  - "freeze_params y runs/<timestamp>/ para trazabilidad"
+  - "Validación de esquema y saneamiento de horas en config_loader.py"
+  - "Congelado de metadatos e integridad hash del YAML institucional"
+  - "Contexto operacional centralizado en config/contexto.yaml"
+  - "Renombrado a snake_case del script de carga de símbolo único"
+  - "Pruebas automatizadas mínimas (pytest) para loader y smoke del motor"
+
+resumen_backtesting:
+  total_operaciones: 805
+  compras: 403
+  ventas: 402
+  ganancia_simulada: -1344.33
+  tasa_aciertos: 78.61
+  factor_beneficio: 0.73
+  drawdown_maximo: 2586.14
+  expectativa: -3.34
+  duracion_promedio_trade: 32
+  indicadores_usados:
+    - "RSI"
+  observaciones: "RSI aparece en ganadoras y perdedoras; se recomienda complementar con ADX"
+
+preferencias_tecnicas:
+  idioma_variables: "español"
+  reglas:
+    - "No se permiten nuevas variables en inglés"
+    - "Migrar progresivamente variables existentes en inglés"
+    - "Funciones, clases y módulos deben mantenerse en español"
+    - "Documentar excepciones en el changelog técnico"
+  ejemplos_permitidos:
+    - "precio"
+    - "señal"
+    - "cierre"
+    - "compra"
+    - "venta"
+  ejemplos_prohibidos:
+    - "price"
+    - "signal"
+    - "close"
+    - "buy"
+    - "sell"
+
+proximos_pasos:
+  - "✅ COMPLETADO: Cablear TP/SL dinámico por régimen desde institucional.yaml"
+  - "✅ COMPLETADO: Integrar guardrails Beta A2 completos en motor principal"
+  - "SIGUIENTE: Corregir y finalizar scripts/runner_institucional.py"
+  - "SIGUIENTE: Crear runner unificado QA -> Backtesting -> Portfolio"
+  - "FUTURO: Reejecutar Beta ganadora con filtros A2 activos"
+  - "FUTURO: Congelar parámetros por ejecución y registrar veredictos"
+  - "FUTURO: Reforzar confiabilidad del RSI con ADX"
+  - "FUTURO: Ampliar cobertura de pruebas (gating, runner institucional)"
+  - "FUTURO: Crear dashboard longitudinal de ejecuciones"
+
+auditorias_recientes:
+  sesgo_operativo:
+    periodo: "2025-09-27"
+    simbolos:
+      BTCUSDT:
+        filtros_bloqueo_principales:
+          - "ADX 34.3%"
+          - "ATR 10.8%"
+          - "VOTOS 23.9%"
+        senales_aprobadas:
+          compras: 48642
+          ventas: 1342
+      ETHUSDT:
+        filtros_bloqueo_principales:
+          - "ADX 28.3%"
+          - "ATR 10.3%"
+          - "VOTOS 25.2%"
+        senales_aprobadas:
+          compras: 58192
+          ventas: 1543
+      BNBUSDT:
+        filtros_bloqueo_principales:
+          - "ADX 31.3%"
+          - "ATR 12.2%"
+          - "VOTOS 23.5%"
+        senales_aprobadas:
+          compras: 53154
+          ventas: 1234
+      WLDUSDT:
+        filtros_bloqueo_principales:
+          - "ADX 36.7%"
+          - "ATR 13.2%"
+          - "VOTOS 20.6%"
+        senales_aprobadas:
+          compras: 50721
+          ventas: 1225
+    recomendaciones:
+      - "Mantener filtros actuales y modular por régimen en horas pico"
+  organizativa_prev:
+    fuente: "auditoria_tecnica_y_organizativa.md"
+    pendientes_relevantes:
+      - "Unificar smokes duplicados (quick_backtest_check)"
+      - "Centralizar runners en un flujo institucional"
+      - "Agregar pruebas automáticas mínimas"

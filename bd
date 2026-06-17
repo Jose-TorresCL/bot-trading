@@ -1,4 +1,4 @@
-[1mdiff --git a/__pycache__/gestor_indicadores.cpython-311.pyc b/__pycache__/gestor_indicadores.cpython-311.pyc[m
+.[1mdiff --git a/__pycache__/gestor_indicadores.cpython-311.pyc b/__pycache__/gestor_indicadores.cpython-311.pyc[m
 [1mindex c899b75..0df3001 100644[m
 Binary files a/__pycache__/gestor_indicadores.cpython-311.pyc and b/__pycache__/gestor_indicadores.cpython-311.pyc differ
 [1mdiff --git a/archivo_principal.py b/archivo_principal.py[m

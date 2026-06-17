@@ -1,0 +1,4 @@
+# Demo BTCUSDT
+symbol: BTCUSDT
+tp_sl_profile: conservador
+months: 1

@@ -1,0 +1,58 @@
+# Archivo: config/instrucciones.yaml
+# Propósito: Gobernanza operativa para agentes institucionales MCP
+
+metas:
+  - Asegurar trazabilidad completa y reproducibilidad por símbolo y por sesión
+  - Validar cada ejecución contra quality gates definidos en .bot_agent_instructions.yaml
+  - Permitir auditoría modular por fase, símbolo y régimen
+  - Congelar decisiones técnicas en changelogs versionados
+
+restricciones:
+  - No modificar config/institucional.yaml sin congelado SHA-256 y changelog asociado
+  - No ejecutar símbolos no listados en institucional.yaml.portafolio
+  - No sobreescribir artefactos sin timestamp, hash y carpeta versionada
+  - No continuar si QA maestro o validación de equity_curve falla
+  - No usar mas variables funciones o clases en ingles, solo usar español
+  - No ejecutar scripts fuera de los autorizados en .bot_agent_instructions.yaml
+
+comportamiento:
+  runner:
+    - Debe cargar config/institucional.yaml como fuente única de verdad
+    - Debe registrar logs en runs/<timestamp>/logs/
+    - Debe congelar parámetros por símbolo en params_frozen.json
+    - Debe guardar copia del YAML institucional en cada run
+    - Debe permitir modo simulación (--simulacion) sin escritura de resultados
+    - Debe registrar METRICS_VERSION y versión del motor en cada changelog
+
+  backtesting:
+    - Debe aplicar TP/SL por régimen si está definido
+    - Debe registrar MFE, MAE, ATR, régimen, comisiones y slippage por operación
+    - Debe guardar trades_enriquecidos.csv, grid_resultados.csv y session_summary.csv
+    - Debe generar changelog técnico en changelogs/<timestamp>.md
+
+  fase1:
+    - Puede actualizar institucional.yaml solo si se activa el flag --actualizar
+    - Debe registrar cambios en contexto.yaml.hitos con hash anterior y nuevo
+
+  fase2:
+    - Debe validar que cada símbolo tenga al menos un régimen activo
+    - Debe aplicar filtros y quality gates definidos
+    - Debe generar veredicto por símbolo y resumen multisimbolo
+
+  fase3:
+    - Debe ejecutar portafolio completo con parámetros congelados
+    - Debe generar changelog institucional y sincronizar con GitHub vía .mcp_config.yaml
+    - Debe registrar equity_curve.csv y resumen de producción
+
+validaciones:
+  - pytest debe pasar antes de permitir ejecución de portafolio
+  - equity_curve.csv debe estar presente en cada ejecución
+  - veredicto debe incluir: tasa de aciertos, profit factor neto, drawdown máximo, expectativa
+  - trades_enriquecidos.csv debe contener columnas mínimas: timestamp, pnl, net_pnl, fee, régimen
+
+auditoría:
+  - Cada ejecución debe generar reporte en runs/<timestamp>/reportes/reporte.md
+  - El reporte debe incluir: hash del YAML, resumen de operaciones, comparativa con última ejecución
+  - Debe existir bitácora técnica actualizada al menos una vez por semana
+  - Debe registrar errores, fallos de QA, y símbolos descartados con causa
+

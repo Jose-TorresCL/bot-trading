@@ -1,0 +1,99 @@
+defaults:
+  execution:
+    fee_bps: 8
+    slippage_bps: 5
+    tick_size: 0.01
+  filters:
+    allowed_regimes:
+    - trend
+    - range
+    - neutral
+    - low_vol
+    exclude_hours:
+    - 0
+    - 1
+    - 2
+    - 12
+    - 13
+    - 14
+    min_atr_pct: 0.22
+    min_bbw_pct: 0.15
+  guardrails:
+    max_dd_pct: 0.25
+    max_fees_pct: 0.4
+    max_trades_per_day: 6
+    min_pf_net: 1.2
+    min_trades_total: 50
+  tp_sl_by_regime_profile: conservador
+metadata:
+  author: mijail
+  description: Fuente única de verdad institucional
+  schema_version: '1.0'
+  timezone: UTC
+portfolio:
+  include:
+  - BTCUSDT
+  - ETHUSDT
+  - BNBUSDT
+  weighting: equal
+profiles:
+  tp_sl_by_regime:
+    agresivo:
+      high_vol:
+        sl_mult: 1.0
+        tp_mult: 1.8
+      low_vol:
+        sl_mult: 0.8
+        tp_mult: 1.9
+      neutral:
+        sl_mult: 0.9
+        tp_mult: 1.7
+      range:
+        sl_mult: 0.9
+        tp_mult: 1.6
+      trend:
+        sl_mult: 0.9
+        tp_mult: 1.9
+    conservador:
+      high_vol:
+        sl_mult: 1.1
+        tp_mult: 1.6
+      low_vol:
+        sl_mult: 0.9
+        tp_mult: 1.7
+      neutral:
+        sl_mult: 1.0
+        tp_mult: 1.5
+      range:
+        sl_mult: 1.0
+        tp_mult: 1.4
+      trend:
+        sl_mult: 1.0
+        tp_mult: 1.6
+sensitivity:
+  method: fast
+  r_deltas:
+  - -0.1
+  - 0.1
+symbols:
+  BNBUSDT:
+    enabled: true
+    weight: 1.0
+    winner: A2
+  BTCUSDT:
+    enabled: true
+    execution: {}
+    filters: {}
+    tp_sl_by_regime: {}
+    weight: 1.0
+    winner: A2
+  ETHUSDT:
+    enabled: true
+    weight: 1.0
+    winner: A2
+  WLDUSDT:
+    enabled: false
+    role: adverse_control
+    weight: 0.0
+    winner: A1
+version: 1

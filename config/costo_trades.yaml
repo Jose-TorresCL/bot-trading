@@ -1,0 +1,20 @@
+version: 1
+description: "Modelo de costos trade-a-trade para evaluación institucional"
+
+costs:
+  fee_pct: 0.0008      # 0.08% comisión por trade
+  slippage_pct: 0.0005 # 0.05% slippage promedio
+  notional_base: 1000.0 # Base para derivar notional cuando falta
+  description: "Modelo de costos trade-a-trade"
+
+thresholds:
+  min_pf_net: 1.0          # PF neto mínimo para ACCEPT
+  review_pf_threshold: 1.5 # PF < 1.5 marca REVIEW
+  max_dd_threshold: 0.25   # 25% max drawdown
+  description: "Umbrales para veredictos operativos"
+
+# Configuración adicional para futuras extensiones
+additional:
+  funding_rate_pct: 0.0001  # 0.01% funding rate diario (opcional)
+  tax_rate_pct: 0.0         # Impuestos sobre ganancias (0% por defecto)
+  account_maintenance: 0.0  # Costos fijos de cuenta

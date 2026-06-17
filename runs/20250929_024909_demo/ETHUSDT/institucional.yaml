@@ -1,0 +1,4 @@
+# Demo ETHUSDT
+symbol: ETHUSDT
+tp_sl_profile: conservador
+months: 1

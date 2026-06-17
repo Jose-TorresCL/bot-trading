@@ -1,0 +1,24 @@
+# Parámetros optimizados para BNBUSDT
+# Creado: 27 Dic 2025
+
+ESTRATEGIA:
+  rsi_compra: 30
+  rsi_venta: 70
+  adx_minimo: 25
+  sl_multiplier: 1.5
+  tp_multiplier: 2.5
+  use_ichimoku: true
+
+TRADING:
+  simbolo: BNBUSDT
+  timeframe: 1m
+  capital_inicial: 100.0
+  tamaño_posicion: 1.0
+  cooldown_bars: 30
+  max_trades_per_day: 6
+
+COMISIONES:
+  standard: 0.001
+  con_bnb: 0.0005
+  entrada: 0.0005
+  salida: 0.0005
