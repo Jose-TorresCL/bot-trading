@@ -134,6 +134,10 @@ class BTConfig:
     allowed_hours: Optional[List[int]] = None
     min_atr_pct: float = 0.22
     min_bbw_pct: float = 0.15
+    # Filtro de edge neto (costos): TP esperado debe ser >= min_edge_mult x costo
+    # round-trip. None (default) desactiva el filtro y reproduce el
+    # comportamiento previo; se activa via YAML (filters.min_edge_mult).
+    min_edge_mult: Optional[float] = None
     cooldown_bars: int = 2
     max_trades_per_day: int = 6
     starting_capital: float = 100.0
@@ -246,6 +250,8 @@ def bt_config_from_symbol(
         allowed_hours=allowed_hours,
         min_atr_pct=float(filters.get("min_atr_pct", 0.22) or 0.0),
         min_bbw_pct=float(filters.get("min_bbw_pct", 0.15) or 0.0),
+        min_edge_mult=(float(filters["min_edge_mult"])
+                       if filters.get("min_edge_mult") is not None else None),
         cooldown_bars=cooldown,
         max_trades_per_day=max_trades_per_day,
         starting_capital=float(execution.get("starting_capital", 100.0) or 100.0),
@@ -587,6 +593,29 @@ def _entry_signal(row: pd.Series, cfg: BTConfig, side: str, cooldown_ok: bool = 
         if votes_val < votes_thr:
             debug.update({"atr_pct": atr_pct, "regime": regime, "bbw_pct": bbw_pct, "votes": votes_val, "votes_thr": votes_thr})
             return False, debug
+    # Filtro de edge neto (costos). Usa el TP efectivo por regimen para que el
+    # edge calculado coincida con el TP real que usara la simulacion, y delega
+    # en gating.passes_edge_filter (unica fuente de verdad backtest/live).
+    # atr_pct aqui esta en escala porcentual (igual que min_atr_pct).
+    min_edge_mult = getattr(cfg, "min_edge_mult", None)
+    if min_edge_mult and gating_mod is not None:
+        _, tp_eff = _resolve_tp_sl(cfg, regime)
+        if not gating_mod.passes_edge_filter(
+            atr_pct=atr_pct,
+            tp_mult=tp_eff,
+            fee_bps=cfg.fee_bps,
+            slippage_bps=cfg.slippage_bps,
+            min_edge_mult=min_edge_mult,
+        ):
+            debug.update({
+                "atr_pct": atr_pct,
+                "regime": regime,
+                "bbw_pct": bbw_pct,
+                "tp_eff": tp_eff,
+                "block_edge": True,
+            })
+            return False, debug
+
     debug.update({
         "atr_pct": atr_pct,
         "bbw_pct": bbw_pct,

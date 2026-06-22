@@ -12,13 +12,20 @@ Notas:
 import os
 import logging
 import time
+from pathlib import Path
 from typing import Any
 import pandas as pd
 from binance.client import Client
 from dotenv import load_dotenv
 
-# Cargar variables de entorno desde config.env (en carpeta data)
-load_dotenv("data/config.env")
+# Raiz del proyecto: este archivo vive en src/pipeline/, subir 2 niveles.
+_PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+# Cargar variables de entorno desde config.env (en carpeta data), anclado a la
+# raiz del proyecto para no depender del directorio de trabajo actual (CWD).
+# Esto evita que la carga de credenciales falle silenciosamente cuando otro
+# proceso (p. ej. el agente Lautaro) arranca el bot desde otra ruta.
+load_dotenv(_PROJECT_ROOT / "data" / "config.env")
 
 # Configuración de logs
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -32,8 +39,11 @@ def verificar_credenciales():
     """
     api_key = os.getenv("API_KEY")
     api_secret = os.getenv("API_SECRET")
-    print(f"🔍 API_KEY: {api_key[:5]}********")
-    print(f"🔍 API_SECRET: {api_secret[:5]}********")
+    # No imprimir nunca fragmentos de credenciales por stdout: si Lautaro captura
+    # la salida para responder al usuario o por Telegram, se filtrarian.
+    logger.debug("Credenciales API cargadas: key=%s secret=%s",
+                 "OK" if api_key else "FALTA",
+                 "OK" if api_secret else "FALTA")
     if not api_key or not api_secret:
         logging.error("❌ No se encontraron credenciales. Verifica data/config.env")
         return None, None

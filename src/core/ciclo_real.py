@@ -12,9 +12,9 @@ import os
 import pandas as pd
 from typing import Any, Dict, Optional, List, Union, Sequence, Mapping, cast
 
-from src.conexion_api import get_historical_data, connect_to_binance
-from src.estrategias_bot1 import estrategia_compra, estrategia_venta, registrar_decisiones, gestion_riesgo
-from src.gestor_indicadores import calcular_todos_los_indicadores
+from src.pipeline.conexion_api import get_historical_data, connect_to_binance
+from src.core.estrategias_bot1 import estrategia_compra, estrategia_venta, registrar_decisiones, gestion_riesgo
+from src.core.gestor_indicadores import calcular_todos_los_indicadores
 
 logger = logging.getLogger("ciclo_real")
 
