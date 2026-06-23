@@ -1,0 +1,31 @@
+# .gitignore
+# Ignora archivos de logs, datos y resultados
+*.log
+*.csv
+*.json
+
+# Permite archivos de configuración específicos
+!config.env
+!preguntas.env
+
+# Ignora archivos y carpetas de Python compilados
+*.pyc
+__pycache__/
+
+# Ignora entornos virtuales
+.venv*/
+.venv/
+venv/
+env/
+
+# Ignora bases de datos y carpetas de datos
+bd/
+data/
+logs/
+resultados/
+
+# Ignora checkpoints de Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Ignora configuración de VS Code
+.vscode/
