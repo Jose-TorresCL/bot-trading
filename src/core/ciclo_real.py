@@ -6,6 +6,10 @@ Incluye obtención de datos, cálculo de indicadores, toma de decisiones y regis
 """
 
 import logging
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding="utf-8", errors="replace")
 import time
 import json
 import os
@@ -70,7 +74,7 @@ def obtener_datos_historicos(symbol="ETHUSDT", limit=500) -> Optional[pd.DataFra
     if not client:
         logging.error("❌ No se pudo conectar a Binance. Se detiene el bot.")
         return None
-    historical_data = get_historical_data(client, symbol=symbol, limit=limit)
+    historical_data = get_historical_data(symbol=symbol, limit=limit, client=client)
     df = _to_dataframe(historical_data)
     if df is None or df.empty or len(df) < 50:
         logging.error("❌ No se pudieron obtener suficientes datos históricos.")
@@ -112,8 +116,7 @@ def ejecutar_ciclo():
         try:
             registrar_decisiones(decision, precio_actual, ultimo_indicador, "simulada")
         except Exception:
-            # fallback si firma distinta
-            registrar_decisiones(tipo=decision, precio=precio_actual, indicadores=ultimo_indicador, estado="simulada")
+            pass
     logging.info("✅ Ciclo de trading completado.")
     return historical_data
 
@@ -158,7 +161,7 @@ def ejecutar_ciclo_paper_trading(symbol: str = "BTCUSDT",
                 time.sleep(intervalo)
                 continue
 
-            data = get_historical_data(client, symbol=symbol, interval="1m", limit=100)
+            data = get_historical_data(symbol=symbol, interval="1m", limit=100, client=client)
             df = _to_dataframe(data)
             if df is None or df.empty:
                 logger.warning("DF vacío; sleep %ss", intervalo)
@@ -198,7 +201,7 @@ def ejecutar_ciclo_paper_trading(symbol: str = "BTCUSDT",
                     try:
                         registrar_decisiones("compra", precio_actual, ind, "aprobado")
                     except Exception:
-                        registrar_decisiones(tipo="compra", precio=precio_actual, indicadores=ind, estado="aprobado")
+                        pass
                     logger.info("➡️ Abre LONG @ %.4f", precio_actual)
                 elif sell:
                     posicion_abierta = True
@@ -207,7 +210,7 @@ def ejecutar_ciclo_paper_trading(symbol: str = "BTCUSDT",
                     try:
                         registrar_decisiones("venta", precio_actual, ind, "aprobado")
                     except Exception:
-                        registrar_decisiones(tipo="venta", precio=precio_actual, indicadores=ind, estado="aprobado")
+                        pass
                     logger.info("➡️ Abre SHORT @ %.4f", precio_actual)
 
             # Salida con SL/TP ejecutado
@@ -222,6 +225,7 @@ def ejecutar_ciclo_paper_trading(symbol: str = "BTCUSDT",
                     tp_mult=2.5,
                     trailing_stop=False
                 )
+                logger.info("SL=%.4f TP=%.4f ATR=%.4f hit_sl=%s hit_tp=%s", risk_eval.get("stop_price",0), risk_eval.get("take_price",0), float((ind or {}).get("ATR") or 0), risk_eval.get("hit_sl"), risk_eval.get("hit_tp"))
                 
                 cerrar = False
                 cierre_razon = "estrategia"
@@ -257,7 +261,7 @@ def ejecutar_ciclo_paper_trading(symbol: str = "BTCUSDT",
                         try:
                             registrar_decisiones("cierre", precio_actual, ind, "cerrado")
                         except Exception:
-                            registrar_decisiones(tipo="cierre", precio=precio_actual, indicadores=ind, estado="cerrado")
+                            pass
                     
                     posicion_abierta = False
                     precio_entrada = None

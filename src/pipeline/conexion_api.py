@@ -25,7 +25,7 @@ _PROJECT_ROOT = Path(__file__).resolve().parents[2]
 # raiz del proyecto para no depender del directorio de trabajo actual (CWD).
 # Esto evita que la carga de credenciales falle silenciosamente cuando otro
 # proceso (p. ej. el agente Lautaro) arranca el bot desde otra ruta.
-load_dotenv(_PROJECT_ROOT / "data" / "config.env")
+load_dotenv(_PROJECT_ROOT / "data" / "config.env", override=True)
 
 # Configuración de logs
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
@@ -60,7 +60,10 @@ def connect_to_binance():
         return None
     try:
         client = Client(api_key, api_secret)
-        client.ping()  # Verifica conexión activa
+        import time as _t
+        server_time = client.get_server_time()['serverTime']
+        client.timestamp_offset = server_time - int(_t.time() * 1000)
+        client.ping()  # Verifica conexion activa
         logging.info("✅ Conexión exitosa con Binance.")
         return client
     except Exception as e:
@@ -97,6 +100,12 @@ def _normalize_df_from_api(all_data: Any) -> pd.DataFrame:
     else:
         try:
             df = pd.DataFrame(all_data)
+            # Binance klines vienen como listas sin nombres: asignar columnas
+            if df.shape[1] >= 6 and isinstance(df.columns[0], int):
+                cols = ["timestamp","open","high","low","close","volume",
+                        "close_time","quote_volume","trades",
+                        "taker_buy_base","taker_buy_quote","ignore"]
+                df.columns = cols[:df.shape[1]]
         except Exception:
             return pd.DataFrame()
 
@@ -132,7 +141,7 @@ def _normalize_df_from_api(all_data: Any) -> pd.DataFrame:
 
     return df.reset_index(drop=True)[["timestamp", "open", "high", "low", "close", "volume"] + ([c for c in df.columns if c not in ["timestamp","open","high","low","close","volume"]])]
 
-def get_historical_data(client, symbol: str = "ETHUSDT", interval: str = "1m", limit: int = 1500, retries: int = 3, startTime: int | None = None, endTime: int | None = None) -> pd.DataFrame:
+def get_historical_data(symbol: str = "ETHUSDT", interval: str = "1m", limit: int = 1500, client=None, retries: int = 3, startTime: int | None = None, endTime: int | None = None) -> pd.DataFrame:
     """
     Obtiene datos históricos desde el cliente (p.ej. Binance). Devuelve siempre pd.DataFrame.
     Si client es None o la respuesta no es adecuada, retorna datos simulados.
@@ -143,7 +152,7 @@ def get_historical_data(client, symbol: str = "ETHUSDT", interval: str = "1m", l
         return pd.DataFrame()
 
     if client is None:
-        return generar_datos_simulados(limit, freq="1min" if interval.endswith("m") else "1H")
+        client = connect_to_binance()
 
     all_data = []
     for attempt in range(1, retries + 1):
@@ -185,6 +194,7 @@ def get_historical_data(client, symbol: str = "ETHUSDT", interval: str = "1m", l
             logger.error("Error obteniendo datos históricos (intento %d): %s", attempt, e)
             time.sleep(1)
 
+    logger.info("DEBUG all_data len=%d, sample=%s", len(all_data), all_data[0] if all_data else None)
     if not all_data or len(all_data) < 52:
         logger.warning("Datos insuficientes (%d registros). Usando simulados.", len(all_data))
         return generar_datos_simulados(limit, freq="1min" if interval.endswith("m") else "1H")

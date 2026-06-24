@@ -15,7 +15,7 @@ def classify_regime(row: Mapping[str, Any]) -> str:
             pass
     # Fallback simple y estable
     adx = float(row.get("ADX", 0) or 0)
-    bbw_pct = float(row.get("BBW_pct", 0) or 0)
+    bbw_pct = float(row.get("BB_Width", 0) or 0)
     rsi = float(row.get("RSI", 50) or 50)
     if adx >= 25 and bbw_pct >= 0.5:
         return "trend"
