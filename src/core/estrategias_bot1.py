@@ -299,7 +299,7 @@ def estrategia_venta(
         adx_raw = indicadores.get("ADX", 0)
         # normalizar ADX (acepta scalar o lista/tupla)
         if isinstance(adx_raw, (list, tuple)):
-            adx = _safe_float(adx_raw if len(adx_raw) > 0 else 0.0)
+            adx = _safe_float(adx_raw[0] if len(adx_raw) > 0 else 0.0)
         else:
             adx = _safe_float(adx_raw)
         atr = indicadores.get("ATR", 0)
