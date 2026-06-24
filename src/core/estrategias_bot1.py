@@ -387,6 +387,7 @@ def gestion_riesgo(
         # calcular stop/take de referencia según modo
         if modo == "compra":
             stop_price = float(precio_entrada) - stop_move
+            sl_original = stop_price
             take_price = float(precio_entrada) + take_move
             # breakeven cuando alcance +1R
             if float(precio_actual) >= float(precio_entrada) + stop_move:
@@ -406,6 +407,7 @@ def gestion_riesgo(
         else:
             stop_price = float(precio_entrada) + stop_move
             take_price = float(precio_entrada) - take_move
+            sl_original = stop_price
             if float(precio_actual) <= float(precio_entrada) - stop_move:
                 stop_price = float(precio_entrada)
             if trailing_stop and mejor_precio is not None:
@@ -424,7 +426,7 @@ def gestion_riesgo(
         )
 
         # Detectar si se activó SL o TP
-        hit_sl = float(precio_actual) <= stop_price if modo == "compra" else float(precio_actual) >= stop_price
+        hit_sl = float(precio_actual) <= sl_original if modo == "compra" else float(precio_actual) >= sl_original
         hit_tp = float(precio_actual) >= take_price if modo == "compra" else float(precio_actual) <= take_price
 
         out = {
