@@ -82,6 +82,40 @@ def calcular_rsi(series: pd.Series, period: int = 14) -> pd.Series:
     return rsi.ffill()
 
 
+
+def _calcular_adx_manual(high: pd.Series, low: pd.Series, close: pd.Series, period: int = 14) -> pd.Series:
+    n = len(close)
+    if n < period + 1:
+        return pd.Series([float("nan")] * n, dtype="float64")
+    h = high.astype("float64").values
+    l = low.astype("float64").values
+    c = close.astype("float64").values
+    tr = np.maximum(h[1:] - l[1:], np.maximum(abs(h[1:] - c[:-1]), abs(l[1:] - c[:-1])))
+    dm_pos = np.where((h[1:] - h[:-1]) > (l[:-1] - l[1:]), np.maximum(h[1:] - h[:-1], 0), 0)
+    dm_neg = np.where((l[:-1] - l[1:]) > (h[1:] - h[:-1]), np.maximum(l[:-1] - l[1:], 0), 0)
+    def wilder(arr, p):
+        out = np.full(len(arr), np.nan)
+        out[p-1] = arr[:p].sum()
+        for i in range(p, len(arr)):
+            out[i] = out[i-1] - out[i-1]/p + arr[i]
+        return out
+    atr_w  = wilder(tr, period)
+    dmp_w  = wilder(dm_pos, period)
+    dmn_w  = wilder(dm_neg, period)
+    with np.errstate(divide="ignore", invalid="ignore"):
+        di_pos = 100 * np.where(atr_w > 0, dmp_w / atr_w, 0)
+        di_neg = 100 * np.where(atr_w > 0, dmn_w / atr_w, 0)
+        dx     = 100 * np.where((di_pos + di_neg) > 0, abs(di_pos - di_neg) / (di_pos + di_neg), 0)
+    adx_arr = np.full(len(dx), np.nan)
+    start = period - 1
+    if start + period <= len(dx):
+        adx_arr[start + period - 1] = dx[start:start+period].mean()
+        for i in range(start + period, len(dx)):
+            adx_arr[i] = (adx_arr[i-1] * (period-1) + dx[i]) / period
+    result = np.full(n, np.nan)
+    result[1:] = adx_arr
+    return pd.Series(result, dtype="float64")
+
 def calcular_todos_los_indicadores(df: pd.DataFrame, export_snapshot: bool = True, snapshot_prefix: str = None):
     """
     Calcula y devuelve indicadores por fila (lista de dicts).
@@ -120,18 +154,10 @@ def calcular_todos_los_indicadores(df: pd.DataFrame, export_snapshot: bool = Tru
     else:
         bbw = pd.Series([np.nan] * n, dtype="float64")
 
-    # ADX (pandas_ta opcional)
-    if ta is not None and not high.empty and not low.empty and not close.empty:
-        try:
-            adx_df = ta.adx(high=high, low=low, close=close, length=14)
-            adx_col = next((c for c in adx_df.columns if "ADX" in c.upper()), None)
-            if adx_col is not None and adx_col in adx_df.columns:
-                adx = adx_df[adx_col].reset_index(drop=True).reindex(range(n)).astype("float64")
-            else:
-                adx = pd.Series([np.nan] * n, dtype="float64")
-        except Exception:
-            adx = pd.Series([np.nan] * n, dtype="float64")
-    else:
+    # ADX manual (sin pandas_ta)
+    try:
+        adx = _calcular_adx_manual(high, low, close, period=14).reindex(range(n))
+    except Exception:
         adx = pd.Series([np.nan] * n, dtype="float64")
 
     # Ichimoku (fallback devuelve None o dict)
@@ -185,7 +211,23 @@ def calcular_todos_los_indicadores(df: pd.DataFrame, export_snapshot: bool = Tru
 
     indicadores_df = pd.concat([indicadores_df.reset_index(drop=True), ichimoku_df.reset_index(drop=True)], axis=1)
     indicadores_df = pd.concat([indicadores_df.reset_index(drop=True), macd_df.reset_index(drop=True)], axis=1)
-    indicadores_df["votes"] = 1
+    # Votes: suma de señales alcistas confirmadas
+    v = pd.Series(0, index=indicadores_df.index)
+    # RSI oversold rebote
+    v += (indicadores_df["RSI"] < 35).astype(int)
+    # RSI en zona neutral-alcista
+    v += ((indicadores_df["RSI"] >= 45) & (indicadores_df["RSI"] <= 65)).astype(int)
+    # ADX tendencia activa
+    v += (indicadores_df["ADX"] >= 25).astype(int)
+    # BB compresion rompiendo (BBW subiendo)
+    bbw_s = indicadores_df["BB_Width"]
+    v += (bbw_s > bbw_s.shift(1)).astype(int)
+    # MACD histogram positivo
+    v += (indicadores_df["hist"] > 0).astype(int)
+    # Precio sobre Kijun (Ichimoku)
+    if "Kijun" in indicadores_df.columns:
+        v += (close.values > indicadores_df["Kijun"].values).astype(int)
+    indicadores_df["votes"] = v.clip(lower=0)
 
     for c in indicadores_df.columns:
         indicadores_df[c] = pd.to_numeric(indicadores_df[c], errors="coerce")

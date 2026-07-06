@@ -9,6 +9,13 @@ ESTRATEGIA:
   tp_multiplier: 2.5
   use_ichimoku: true
 
+# Filtro de edge neto (costos). El TP esperado debe ser >= min_edge_mult x el
+# costo round-trip (fee + slippage). Lo consume backtesting via filters.min_edge_mult
+# en el config institucional; aqui se documenta el valor de referencia.
+# null/ausente = filtro desactivado (comportamiento previo).
+FILTROS:
+  min_edge_mult: 1.5
+
 TRADING:
   simbolo: BNBUSDT
   timeframe: 1m
